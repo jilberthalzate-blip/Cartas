@@ -14,7 +14,6 @@ public class FrmJuego extends JFrame {
     private JPanel pnlJugador1, pnlJugador2;
     private Jugador jugador1, jugador2;
     JTabbedPane tpJugadores;
-    jtabbepane escaleras;
 
     public FrmJuego() {
 
@@ -75,19 +74,26 @@ public class FrmJuego extends JFrame {
 
         jugador1.mostrar(pnlJugador1);
         jugador2.mostrar(pnlJugador2);
+
     }
 
     private void verificar() {
-        switch (tpJugadores.getSelectedIndex()) {
-            case 0: 
-                JOptionPane.showMessageDialog(null, jugador1.getGrupos()+"n/"jugador1.getEscaleras());
-                break;
-            case 1:
-                JOptionPane.showMessageDialog(null, jugador2.getGrupos());
-                break;
-        
+    switch (tpJugadores.getSelectedIndex()) {
+        case 0: {
+            String mensaje = jugador1.getGrupos() + "\n" 
+                           + jugador1.getEscaleras() + "\n"
+                          + "Puntaje cartas sueltas: " + jugador1.getPuntajeCartasSueltas();
+            JOptionPane.showMessageDialog(null, mensaje);
+            break;
         }
-
+        case 1: {
+            String mensaje = jugador2.getGrupos() + "\n" 
+                           + jugador2.getEscaleras() + "\n"
+                          + "Puntaje cartas sueltas: " + jugador2.getPuntajeCartasSueltas();
+            JOptionPane.showMessageDialog(null, mensaje);
+            break;
+        }
     }
+}
 
 }
